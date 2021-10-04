@@ -8,3 +8,8 @@ Pick<
   'amount' |
   'type'
 >
+
+export enum OperationType {
+  DEPOSIT = 'deposit',
+  WITHDRAW = 'withdraw',
+}

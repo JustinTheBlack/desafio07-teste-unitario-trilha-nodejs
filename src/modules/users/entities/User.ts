@@ -3,6 +3,7 @@ import {
   CreateDateColumn,
   Entity,
   OneToMany,
+  PrimaryColumn,
   PrimaryGeneratedColumn
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
@@ -11,8 +12,8 @@ import { Statement } from '../../statements/entities/Statement';
 
 @Entity('users')
 export class User {
-  @PrimaryGeneratedColumn('uuid')
-  id?: string;
+  @PrimaryColumn()
+  id: string;
 
   @Column()
   name: string;

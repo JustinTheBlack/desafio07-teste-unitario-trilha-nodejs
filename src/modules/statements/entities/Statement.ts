@@ -4,21 +4,16 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
-  PrimaryGeneratedColumn
+  PrimaryColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
 import { User } from '../../users/entities/User';
-
-enum OperationType {
-  DEPOSIT = 'deposit',
-  WITHDRAW = 'withdraw',
-}
-
+import { OperationType } from '../useCases/createStatement/ICreateStatementDTO';
 @Entity('statements')
 export class Statement {
-  @PrimaryGeneratedColumn('uuid')
-  id?: string;
+  @PrimaryColumn()
+  id: string;
 
   @Column('uuid')
   user_id: string;
