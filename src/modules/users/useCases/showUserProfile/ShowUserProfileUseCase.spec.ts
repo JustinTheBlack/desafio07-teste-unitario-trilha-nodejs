@@ -30,12 +30,24 @@ describe("Show User Profile Use Case", () => {
 
   it("should not be able a show user profile an nonexistent user  equal object error", async () => {
     expect(async () => {
+      const userCreate: ICreateUserDTO = {
+        name: "teste",
+        email: "teste@teste.com.br",
+        password: "12345",
+      }
+      const { id } = await createUserUseCase.execute(userCreate);
       await showUserProfileUseCase.execute("54321");
     }).rejects.toEqual({"message": "User not found", "statusCode": 404});
   });
 
   it("should not be able a show user profile an nonexistent user", async () => {
     expect(async () => {
+      const userCreate: ICreateUserDTO = {
+        name: "teste",
+        email: "teste@teste.com.br",
+        password: "12345",
+      }
+      const { id } = await createUserUseCase.execute(userCreate);
       await showUserProfileUseCase.execute("54321");
     }).rejects.toBeInstanceOf(ShowUserProfileError);
   });
