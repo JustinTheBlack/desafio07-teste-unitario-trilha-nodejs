@@ -7,6 +7,12 @@ export namespace CreateStatementError {
     }
   }
 
+  export class UserNotInformation extends AppError {
+    constructor() {
+      super('User not Information', 404);
+    }
+  }
+
   export class InsufficientFunds extends AppError {
     constructor() {
       super('Insufficient funds', 400);
